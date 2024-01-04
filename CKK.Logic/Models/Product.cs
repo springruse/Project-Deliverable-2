@@ -6,36 +6,12 @@ using System.Threading.Tasks;
 
 namespace CKK.Logic.Models
 {
-    internal class Product
+    public class Product
     {
         private int Id;
         private string Name;
         private decimal Price;
-
-        public int Id
-        {
-            get { return Id;}
-            set { 
-                if (value == Id)
-            }
-        }
-
-        public string Name
-        {
-            get { return Name;}
-            set { 
-                if (value == Name)
-            }
-        }
-
-        public decimal Price
-        {
-            get { return Price;}
-            set { 
-                if (value == Price)
-            }
-        }
-
+        
         public int GetId()
         {
             return Id;
