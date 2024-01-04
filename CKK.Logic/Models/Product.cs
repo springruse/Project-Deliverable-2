@@ -37,7 +37,7 @@ namespace CKK.Logic.Models
             return Price;
         }
 
-        public void SetPrice(int Price)
+        public void SetPrice(decimal Price)
         {
             this.Price = Price;
         }
