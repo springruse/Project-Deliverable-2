@@ -2,38 +2,38 @@
 {
     public class Customer
     {
-        private int Id;
-        private string Name;
-        private string Address;
+        private int _id;
+        private string _name;
+        private string _address;
 
         public int getId()
         {
-            return Id;
+            return _id;
         }
 
-        public void SetId(int Id)
+        public void SetId(int _id)
         {
-            this.Id = Id;
+            this.id = _id;
         }
 
         public string GetName()
         {
-            return Name;
+            return _name;
         }
 
-        public void SetName(string Name)
+        public void SetName(string _name)
         {
-            this.Name = Name;
+            this.name = _name;
         }
 
         public string GetAddress()
         {
-            return Address;
+            return _address;
         }
 
-        public void SetAddress(string Address)
+        public void SetAddress(string _address)
         {
-            this.Address = Address;
+            this.address = _address;
         }
     }
 
