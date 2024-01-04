@@ -6,7 +6,7 @@
         private string Name;
         private string Address;
 
-        public int getId()
+        public int GetId()
         {
             return Id;
         }

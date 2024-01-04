@@ -26,7 +26,7 @@ namespace CKK.Logic.Models
         {
             this._quantity = quantity;
         }
-        public Product getProduct()
+        public Product GetProduct()
         {
             return _product;
         }
