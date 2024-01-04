@@ -1,18 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CKK.Logic
+﻿namespace CKK.Logic.Models
 {
-    internal class Product
+    public class Customer
     {
         private int Id;
         private string Name;
-        private decimal Price;
+        private string Address;
 
-        public int GetId()
+        public int getId()
         {
             return Id;
         }
@@ -32,14 +26,15 @@ namespace CKK.Logic
             this.Name = Name;
         }
 
-        public decimal GetPrice()
+        public string GetAddress()
         {
-            return Price;
+            return Address;
         }
 
-        public void SetPrice(int Price)
+        public void SetAddress(string Address)
         {
-            this.Price = Price;
+            this.Address = Address;
         }
     }
+
 }

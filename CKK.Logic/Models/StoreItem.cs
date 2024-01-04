@@ -4,20 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CKK.Logic
+namespace CKK.Logic.Models
 {
-    internal class ShoppingCartItem
+    internal class StoreItem
     {
         private Product _product;
         private int _quantity;
 
-        public ShoppingCartItem(Product product, int quantity)
+        public StoreItem(Product product, int quantity)
         {
             _product = product;
             _quantity = quantity;
         }
 
-        public int GetQuantity(int quantity)
+        public int GetQuantity()
         {
             return _quantity;
         }
@@ -26,20 +26,14 @@ namespace CKK.Logic
         {
             this._quantity = quantity;
         }
-
-        public Product GetProduct(Product product)
+        public Product getProduct()
         {
             return _product;
         }
 
         public void SetProduct(Product product)
         {
-            this._product = product;
+            _product = product;
         }
-
     }
-
-     
-
-    
 }
