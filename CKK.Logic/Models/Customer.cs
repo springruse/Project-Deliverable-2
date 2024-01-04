@@ -6,6 +6,30 @@
         private string Name;
         private string Address;
 
+        public string Name
+        {
+            get { return Name;}
+            set { 
+                if (value == Name)
+            }
+        }
+
+        public string Address
+        {
+            get { return Address;}
+            set { 
+                if (value == Address)
+            }
+        }
+
+        public int Id
+        {
+            get { return Id;}
+            set { 
+                if (value == Id)
+            }
+        }
+
         public int getId()
         {
             return Id;
