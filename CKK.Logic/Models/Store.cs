@@ -43,7 +43,7 @@ namespace CKK.Logic.Models
             
         }
 
-        FindStoreItemByID(int id)
+        public product FindStoreItemByID(int id)
         {
 
         }
