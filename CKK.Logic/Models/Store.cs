@@ -30,22 +30,74 @@ namespace CKK.Logic.Models
 
         public void AddStoreItem(product product)
         {
-
+            if (_product1 == null)
+            {
+                _product1 = product;
+            }
+            else if (_product2 == null)
+            {
+                _product2 = product;
+            }
+            else if (_product3 == null)
+            {
+                _product3 = product;
+            }
         }
 
         public void RemoveStoreItem(int ProductNum)
         {
-
+            if (ProductNum == 1 && _product1 != null)
+            {
+                _product1 = null;
+            }
+            else if (ProductNum == 2 && _product2 != null)
+            {
+                _product2 = null;
+            }
+            else if (ProductNum == 3 && _product3 != null)
+            {
+                _product3 = null;
+            }
         }
 
-        public product GetStoreItem(int id)
+        public Product GetStoreItem(int productNum)
         {
-            
+            if (ProductNum == 1 && _product1 != null)
+            {
+                return _product1;
+            }
+            else if (ProductNum == 2 && _product2 != null)
+            {
+                return _product2;
+            }
+            else if (ProductNum == 3 && _product3 != null)
+            {
+                return _product3;
+            }
+            else 
+            { 
+                return null; 
+            }
         }
 
-        public product FindStoreItemByID(int id)
+        public Product FindStoreItemByID(int id)
         {
-
+            if (_product1 != null && _product1.GetId() == id) 
+            {
+                return _product1;
+            }
+            else if (_product2 != null && _product1.GetId() == id)
+            {
+                return _product2;
+            }
+            else if (_product3 != null && _product1.GetId() == id)
+            {
+                return _product3;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }
