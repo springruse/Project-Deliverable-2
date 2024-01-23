@@ -60,7 +60,7 @@ namespace CKK.Logic.Models
             }
         }
 
-        public Product GetStoreItem(int productNum)
+        public Product GetStoreItem(int ProductNum)
         {
             if (ProductNum == 1 && _product1 != null)
             {
