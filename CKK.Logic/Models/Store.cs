@@ -28,7 +28,7 @@ namespace CKK.Logic.Models
             this._name = name;
         }
 
-        public void AddStoreItem(product product)
+        public void AddStoreItem(Product product)
         {
             if (_product1 == null)
             {
