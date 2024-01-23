@@ -6,9 +6,9 @@ namespace CKK.Logic.Models
     {
         private int _id;
         private string _name;
-        private product _product1;
-        private product _product2;
-        private product _product3;
+        private Product _product1;
+        private Product _product2;
+        private Product _product3;
 
         public int GetId()
         {
