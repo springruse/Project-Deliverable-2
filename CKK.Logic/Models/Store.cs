@@ -15,7 +15,7 @@ namespace CKK.Logic.Models
             return _id;
         }
 
-        public void SetID(int id)
+        public void SetId(int id)
         {
             this._id = id;
         }
@@ -80,7 +80,7 @@ namespace CKK.Logic.Models
             }
         }
 
-        public Product FindStoreItemByID(int id)
+        public Product FindStoreItemById(int id)
         {
             if (_product1 != null && _product1.GetId() == id) 
             {
