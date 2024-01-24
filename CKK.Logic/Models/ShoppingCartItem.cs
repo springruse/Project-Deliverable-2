@@ -39,7 +39,7 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal()
         {
-            decimal total = Convert.ToDecimal(quantity) *  Convert.ToDecimal(product);
+            decimal total = Convert.ToDecimal(_quantity) *  Convert.ToDecimal(_product);
             return total;
         }
 
