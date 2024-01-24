@@ -86,11 +86,11 @@ namespace CKK.Logic.Models
             {
                 return _product1;
             }
-            else if (_product2 != null && _product1.GetId() == id)
+            else if (_product2 != null && _product2.GetId() == id)
             {
                 return _product2;
             }
-            else if (_product3 != null && _product1.GetId() == id)
+            else if (_product3 != null && _product3.GetId() == id)
             {
                 return _product3;
             }
