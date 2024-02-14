@@ -32,11 +32,11 @@ namespace CKK.Logic.Models
             {
                 grandTotal += _product1.GetTotal();
             }
-            if (_product2 != null)
+            else if (_product2 != null)
             {
                 grandTotal += _product2.GetTotal();
             }
-            if (_product3 != null)
+            else if (_product3 != null)
             {
                 grandTotal += _product3.GetTotal();
             }
@@ -49,17 +49,17 @@ namespace CKK.Logic.Models
             {
                 return null;
             }
-            if (_product1 != null && _product1.GetProduct().GetId() == product.GetId())
+            else if (_product1 != null && _product1.GetProduct().GetId() == product.GetId())
             {
                 _product1.SetQuantity(_product1.GetQuantity() + quantity);
                 return _product1;
             }
-            if (_product1 != null && _product2.GetProduct().GetId() == product.GetId())
+            else if (_product1 != null && _product2.GetProduct().GetId() == product.GetId())
             {
                 _product1.SetQuantity(_product1.GetQuantity() + quantity);
                 return _product2;
             }
-            if (_product3 != null && _product3.GetProduct().GetId() == product.GetId())
+            else if (_product3 != null && _product3.GetProduct().GetId() == product.GetId())
             {
                 _product1.SetQuantity(_product1.GetQuantity() + quantity);
                 return _product3;
