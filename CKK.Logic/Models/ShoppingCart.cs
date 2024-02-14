@@ -81,6 +81,7 @@ namespace CKK.Logic.Models
                 _product1 = new ShoppingCartItem(product, quantity);
                 return _product3;
             }
+            return null;
         }
         
        
