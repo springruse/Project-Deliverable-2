@@ -40,7 +40,7 @@ namespace CKK.Logic.Models
             {
                 grandTotal += _product3.GetTotal();
             }
-            else return grandTotal;
+            return grandTotal;
         }
 
         public ShoppingCartItem AddProduct(Product product, int quantity)
@@ -64,7 +64,7 @@ namespace CKK.Logic.Models
                 _product1.SetQuantity(_product1.GetQuantity() + quantity);
                 return _product3;
             }
-            else return null;
+            return null;
         }
         public ShoppingCartItem AddProduct(Product product)
         {
@@ -85,7 +85,7 @@ namespace CKK.Logic.Models
             {
                 return _product3;
             }
-            else return null;
+            return null;
         }
 
         public ShoppingCartItem RemoveProduct(Product product, int quantity)
@@ -124,7 +124,7 @@ namespace CKK.Logic.Models
                 }
                 return _product3;
             }
-            else return null;
+            return null;
         }
         public ShoppingCartItem GetProduct(int productNumber)
         {
@@ -140,7 +140,7 @@ namespace CKK.Logic.Models
             {
                 return _product3;
             }
-            else return  null;
+            return  null;
         }
 
 
