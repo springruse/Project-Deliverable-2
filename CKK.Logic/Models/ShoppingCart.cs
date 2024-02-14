@@ -32,11 +32,11 @@ namespace CKK.Logic.Models
             {
                 grandTotal += _product1.GetTotal();
             }
-            else if (_product2 != null)
+            if (_product2 != null)
             {
                 grandTotal += _product2.GetTotal();
             }
-            else if (_product3 != null)
+            if (_product3 != null)
             {
                 grandTotal += _product3.GetTotal();
             }
