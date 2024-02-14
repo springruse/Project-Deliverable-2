@@ -65,6 +65,25 @@ namespace CKK.Logic.Models
                 return _product3;
             }
             return null;
+
+        if (_product1 == null)
+            {
+                _product1 = new ShoppingCartItem(product, quantity);
+                return _product1;
+            }
+
+        else if (_product2 == null)
+            {
+                _product2 = new ShoppingCartItem(product, quantity);
+                return _product2;
+            }
+
+        else if (_product3 == null)
+            {
+                _product3 = new ShoppingCartItem(product, quantity);
+                return _product3;
+            }
+
         }
         public ShoppingCartItem AddProduct(Product product)
         {
