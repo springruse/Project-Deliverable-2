@@ -102,7 +102,7 @@ namespace CKK.Logic.Models
                 {
                     return null;
                 }
-                return product1;
+                return _product1;
             }
 
             else if (_product2 != null && _product2.GetProduct().GetId() == product.GetId())
