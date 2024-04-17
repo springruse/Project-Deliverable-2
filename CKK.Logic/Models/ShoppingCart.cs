@@ -14,6 +14,8 @@ namespace CKK.Logic.Models
         private ShoppingCartItem _product2;
         private ShoppingCartItem _product3;
 
+        List<ShoppingCartItem> items = new List<ShoppingCartItem>();
+
         public ShoppingCart(Customer customer)
         {
             _customer = customer;   
@@ -45,6 +47,17 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product product, int quantity)
         {
+            if (product == items.Contains(product))
+            {
+                quantity = quantity + 1;
+            }
+            else
+            {
+                items.Add(product);
+            }
+
+
+            /*
             if (quantity < 1)
             {
                 return null;
@@ -82,6 +95,7 @@ namespace CKK.Logic.Models
                 return _product3;
             }
             return null;
+            */
         }
         
        
@@ -163,6 +177,6 @@ namespace CKK.Logic.Models
             return  null;
         }
 
-
+        public ShoppingCartItem GetProduct(ShoppingCartItem.items)
     }
 }
