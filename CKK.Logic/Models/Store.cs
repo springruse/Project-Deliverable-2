@@ -63,6 +63,7 @@ namespace CKK.Logic.Models
             {
                 return null;
             }
+            else return null;
             
             /*if (ProductNum == 1 && _product1 != null)
             {

@@ -10,9 +10,11 @@ namespace CKK.Logic.Models
     public class ShoppingCart
     {
         private Customer _customer;
+        /*
         private ShoppingCartItem _product1;
         private ShoppingCartItem _product2;
         private ShoppingCartItem _product3;
+        */
 
         List<ShoppingCartItem> items = new List<ShoppingCartItem>();
 
@@ -123,6 +125,14 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem RemoveProduct(Product product, int quantity)
         {
+            if (quantity <= 0)
+            {
+                items.Remove(product);
+                return quantity;
+            }
+            else return quantity;
+
+            /*
             if (quantity < 1)
             {
                 return null;
@@ -158,6 +168,7 @@ namespace CKK.Logic.Models
                 return _product3;
             }
             return null;
+            */
         }
 
         public ShoppingCartItem GetProduct(int productNumber)
