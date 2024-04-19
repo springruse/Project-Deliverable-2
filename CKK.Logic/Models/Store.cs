@@ -40,7 +40,7 @@ namespace CKK.Logic.Models
             }
             else
             {
-                products.Add(product)
+                products.Add(product);
             }
             
             /*if (_product1 == null)
@@ -101,6 +101,16 @@ namespace CKK.Logic.Models
 
         public Product FindStoreItemById(int id)
         {
+
+            if (products.Any == id)
+            {
+                Product _id;
+                GetId(products) == Product _id;
+                return _id;
+            }
+            else return null;
+
+            /*
             if (_product1 != null && _product1.GetId() == id) 
             {
                 return _product1;
@@ -117,6 +127,7 @@ namespace CKK.Logic.Models
             {
                 return null;
             }
+            */
         }
     }
 }

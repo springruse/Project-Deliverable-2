@@ -30,6 +30,10 @@ namespace CKK.Logic.Models
 
         public decimal GetTotal()
         {
+
+            var grandTotal = 0m;
+
+            /*
             var grandTotal = 0m;
 
             if (_product1 != null)
@@ -45,6 +49,7 @@ namespace CKK.Logic.Models
                 grandTotal += _product3.GetTotal();
             }
             return grandTotal;
+            */
         }
 
         public ShoppingCartItem AddProduct(Product product, int quantity)
@@ -171,8 +176,14 @@ namespace CKK.Logic.Models
             */
         }
 
-        public ShoppingCartItem GetProduct(int productNumber)
+        public ShoppingCartItem GetProducts()
         {
+            foreach(ShoppingCartItem item in items)
+            {
+                return item;
+            }
+
+            /*
             if (productNumber == 1)
             {
                 return _product1;
@@ -186,8 +197,7 @@ namespace CKK.Logic.Models
                 return _product3;
             }
             return  null;
+            */
         }
-
-        public ShoppingCartItem GetProduct(ShoppingCartItem.items)
     }
 }
