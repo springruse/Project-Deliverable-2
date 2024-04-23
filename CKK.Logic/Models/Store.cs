@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace CKK.Logic.Models
 {
@@ -12,7 +13,7 @@ namespace CKK.Logic.Models
         private Product _product3;
         */
 
-        List<Store> products = new List<Store>();
+        List<StoreItem> products = new List<StoreItem>();
 
         public int GetId()
         {
@@ -34,14 +35,8 @@ namespace CKK.Logic.Models
 
         public void AddStoreItem(Product product, int quantity)
         {
-            if (product == products.Contains(product))
-            {
-                quantity = quantity + 1;
-            }
-            else
-            {
-                products.Add(product);
-            }
+            
+
             
             /*if (_product1 == null)
             {
@@ -59,12 +54,16 @@ namespace CKK.Logic.Models
 
         public void RemoveStoreItem(int id, int quantity)
         {
-            if (quantity >= 0)
+
+            if (products.Equals(id))
             {
-                return null;
+
+                if (quantity <= 0)
+                {
+                    quantity = 0;
+                }
             }
-            else return null;
-            
+
             /*if (ProductNum == 1 && _product1 != null)
             {
                 _product1 = null;
@@ -79,9 +78,15 @@ namespace CKK.Logic.Models
             }*/
         }
 
-        public Product GetStoreItem(int ProductNum)
+        public StoreItem GetStoreItems()
         {
-            if (ProductNum == 1 && _product1 != null)
+            var items =
+                from item in products
+                select item;
+            return (StoreItem)items;
+
+            
+            /*if (ProductNum == 1 && _product1 != null)
             {
                 return _product1;
             }
@@ -96,19 +101,20 @@ namespace CKK.Logic.Models
             else 
             { 
                 return null; 
-            }
+            }*/
         }
 
-        public Product FindStoreItemById(int id)
+        public StoreItem FindStoreItemById(int id)
         {
+            var findItemId =
+                 (from item in products
+                  where item.Equals(id)
+                  select item).FirstOrDefault();
 
-            if (products.Any == id)
-            {
-                Product _id;
-                GetId(products) == Product _id;
-                return _id;
-            }
-            else return null;
+            return findItemId;
+
+
+            
 
             /*
             if (_product1 != null && _product1.GetId() == id) 

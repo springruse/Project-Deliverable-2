@@ -33,6 +33,9 @@ namespace CKK.Logic.Models
 
             var grandTotal = 0m;
 
+            
+
+
             /*
             var grandTotal = 0m;
 
@@ -54,14 +57,8 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product product, int quantity)
         {
-            if (product == items.Contains(product))
-            {
-                quantity = quantity + 1;
-            }
-            else
-            {
-                items.Add(product);
-            }
+            
+        
 
 
             /*
@@ -112,7 +109,14 @@ namespace CKK.Logic.Models
         }
 
         public ShoppingCartItem GetProductById(int id)
-        {
+        {   
+            var getId =
+                (from idNumber in items
+                where items.Equals(id)
+                select idNumber).FirstOrDefault();
+
+            return getId;
+            /*
             if (_product1.GetProduct().GetId() == id)
             {
                 return _product1;
@@ -125,17 +129,12 @@ namespace CKK.Logic.Models
             {
                 return _product3;
             }
-            return null;
+            return null; */
         }
 
         public ShoppingCartItem RemoveProduct(Product product, int quantity)
         {
-            if (quantity <= 0)
-            {
-                items.Remove(product);
-                return quantity;
-            }
-            else return quantity;
+            
 
             /*
             if (quantity < 1)
@@ -178,10 +177,12 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem GetProducts()
         {
-            foreach(ShoppingCartItem item in items)
-            {
-                return item;
-            }
+            var productList =
+                from item in items
+                select item;
+
+            return (ShoppingCartItem)productList;
+            
 
             /*
             if (productNumber == 1)
