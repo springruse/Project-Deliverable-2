@@ -33,7 +33,12 @@ namespace CKK.Logic.Models
 
             var grandTotal = 0m;
 
-            
+            foreach (ShoppingCartItem product in items)
+            {
+                grandTotal += product.GetTotal();
+            }
+
+            return grandTotal;
 
 
             /*
@@ -57,8 +62,23 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product product, int quantity)
         {
-            
-        
+            if (quantity < 0)
+            {
+                return null;
+            }
+
+            var additem = GetProductById(product.GetId());
+
+            if (additem != null)
+            {
+                additem.SetQuantity(additem.GetQuantity() + quantity);
+                return additem;
+            }
+
+            ShoppingCartItem itemAdd = new ShoppingCartItem(product, quantity);
+            items.Add(itemAdd);
+            return itemAdd;
+
 
 
             /*
@@ -109,13 +129,8 @@ namespace CKK.Logic.Models
         }
 
         public ShoppingCartItem GetProductById(int id)
-        {   
-            var getId =
-                (from idNumber in items
-                where items.Equals(id)
-                select idNumber).FirstOrDefault();
-
-            return getId;
+        {
+            return items.Find(x => x.GetProduct().GetId() == id);
             /*
             if (_product1.GetProduct().GetId() == id)
             {
@@ -132,9 +147,28 @@ namespace CKK.Logic.Models
             return null; */
         }
 
-        public ShoppingCartItem RemoveProduct(Product product, int quantity)
+        public ShoppingCartItem RemoveProduct(int id, int quantity)
         {
-            
+            if (quantity < 0)
+            {
+                return null;
+            }
+
+            var additem = GetProductById(id);
+
+            if (additem != null)
+            {
+                if (additem.GetQuantity() - quantity > 0)
+                {
+                    additem.SetQuantity(0);
+                    items.Remove(additem);
+                    return additem;
+                }
+
+                additem.SetQuantity(additem.GetQuantity() + quantity);
+                return additem;
+            }
+            return null;
 
             /*
             if (quantity < 1)

@@ -33,9 +33,26 @@ namespace CKK.Logic.Models
             this._name = name;
         }
 
-        public void AddStoreItem(Product product, int quantity)
+        public StoreItem AddStoreItem(Product product, int quantity)
         {
-            
+            if (quantity < 0)
+            {
+                return null;
+            }
+
+            var additem = FindStoreItemById(product.GetId());
+
+            if (additem != null)
+            {
+                additem.SetQuantity(additem.GetQuantity() + quantity);
+                return additem;
+            }
+
+            StoreItem itemAdd = new StoreItem(product, quantity);
+            products.Add(itemAdd);
+            return itemAdd;
+
+       
 
             
             /*if (_product1 == null)
@@ -52,17 +69,28 @@ namespace CKK.Logic.Models
              }*/
         }
 
-        public void RemoveStoreItem(int id, int quantity)
+        public StoreItem RemoveStoreItem(int id, int quantity)
         {
 
-            if (products.Equals(id))
+            if (quantity < 0)
             {
-
-                if (quantity <= 0)
-                {
-                    quantity = 0;
-                }
+                return null;
             }
+
+            var additem = FindStoreItemById(id);
+
+            if (additem != null)
+            {
+                if (additem.GetQuantity() - quantity > 0)
+                {
+                    additem.SetQuantity(0);
+                    return additem;
+                }
+
+                additem.SetQuantity(additem.GetQuantity() + quantity);
+                return additem;
+            }
+            return null;
 
             /*if (ProductNum == 1 && _product1 != null)
             {
@@ -106,16 +134,8 @@ namespace CKK.Logic.Models
 
         public StoreItem FindStoreItemById(int id)
         {
-            var findItemId =
-                 (from item in products
-                  where item.Equals(id)
-                  select item).FirstOrDefault();
-
-            return findItemId;
-
-
-            
-
+            return products.Find(x => x.GetProduct().GetId() == id);
+        }
             /*
             if (_product1 != null && _product1.GetId() == id) 
             {
@@ -134,6 +154,6 @@ namespace CKK.Logic.Models
                 return null;
             }
             */
-        }
+        
     }
 }
