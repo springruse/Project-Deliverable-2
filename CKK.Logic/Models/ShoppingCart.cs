@@ -158,7 +158,7 @@ namespace CKK.Logic.Models
 
             if (additem != null)
             {
-                if (additem.GetQuantity() - quantity >= 0)
+                if (additem.GetQuantity() - quantity <= 0)
                 {
                     additem.SetQuantity(0);
                     items.Remove(additem);
