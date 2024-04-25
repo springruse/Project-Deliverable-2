@@ -165,7 +165,7 @@ namespace CKK.Logic.Models
                     return additem;
                 }
 
-                additem.SetQuantity(additem.GetQuantity() - quantity);
+                additem.SetQuantity(additem.GetQuantity() + quantity);
                 return additem;
             }
             return null;
