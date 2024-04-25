@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Dynamic;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace CKK.Logic.Models
 {
@@ -82,7 +83,7 @@ namespace CKK.Logic.Models
 
             if (additem != null)
             {
-                if (additem.GetQuantity() - quantity <= 0)
+                if (additem.GetQuantity() - quantity > 0)
                 {
                     additem.SetQuantity(additem.GetQuantity() - quantity);
                     return additem;
