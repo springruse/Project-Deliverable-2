@@ -165,7 +165,7 @@ namespace CKK.Logic.Models
                     return additem;
                 }
 
-                additem.SetQuantity(additem.GetQuantity() + quantity);
+                additem.SetQuantity(additem.GetQuantity() - quantity);
                 return additem;
             }
             return null;
@@ -209,13 +209,11 @@ namespace CKK.Logic.Models
             */
         }
 
-        public ShoppingCartItem GetProducts()
+        public List<ShoppingCartItem> GetProducts()
         {
-            var productList =
-                from item in items
-                select item;
+            return items;
 
-            return (ShoppingCartItem)productList;
+            
             
 
             /*

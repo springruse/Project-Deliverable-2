@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using System.Linq;
 
 namespace CKK.Logic.Models
@@ -83,11 +84,11 @@ namespace CKK.Logic.Models
             {
                 if (additem.GetQuantity() - quantity > 0)
                 {
-                    additem.SetQuantity(0);
+                    additem.SetQuantity(additem.GetQuantity() - quantity);
                     return additem;
                 }
 
-                additem.SetQuantity(additem.GetQuantity() + quantity);
+                additem.SetQuantity(0);
                 return additem;
             }
             return null;
@@ -106,12 +107,9 @@ namespace CKK.Logic.Models
             }*/
         }
 
-        public StoreItem GetStoreItems()
+        public List<StoreItem> GetStoreItems()
         {
-            var items =
-                from item in products
-                select item;
-            return (StoreItem)items;
+            return products;
 
             
             /*if (ProductNum == 1 && _product1 != null)
