@@ -1,10 +1,10 @@
-﻿namespace CKK.Logic.Models
+﻿using CKK.Logic.Interfaces;
+
+namespace CKK.Logic.Models
 {
-    public class Customer
+    public class Customer : Entity
     {
-        private int Id;
-        private string Name;
-        private string Address;
+        public string Address { get; set; }
 
         public int GetId()
         {

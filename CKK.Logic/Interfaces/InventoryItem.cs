@@ -1,6 +1,6 @@
-﻿using System;
+﻿using CKK.Logic.Models;
 
-namespace.CKK.Logic.Interfaces
+namespace CKK.Logic.Interfaces
 {
     public abstract class InventoryItem
     {

@@ -2,13 +2,13 @@
 using System.Dynamic;
 using System.Linq;
 using System.Collections.Generic;
+using CKK.Logic.Interfaces;
 
 namespace CKK.Logic.Models
 {
-    public class Store
+    public class Store : Entity
     {
-        private int _id;
-        private string _name;
+
         /*
         private Product _product1;
         private Product _product2;
@@ -19,20 +19,20 @@ namespace CKK.Logic.Models
 
         public int GetId()
         {
-            return _id;
+            return Id;
         }
 
         public void SetId(int id)
         {
-            this._id = id;
+            this.Id = id;
         }
         public string GetName()
         {
-            return _name;
+            return Name;
         }
         public void SetName(string name)
         {
-            this._name = name;
+            this.Name = name;
         }
 
         public StoreItem AddStoreItem(Product product, int quantity)
