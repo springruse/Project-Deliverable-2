@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using CKK.Logic.Exceptions;
 
 namespace CKK.Logic.Models
 {
@@ -43,9 +44,9 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem AddProduct(Product product, int quantity)
         {
-            if (quantity < 0)
+            if (quantity <= 0)
             {
-                return null;
+                throw new InventoryItemStockTooLowException();
             }
 
             var additem = GetProductById(product.GetId());
@@ -69,6 +70,11 @@ namespace CKK.Logic.Models
 
         public ShoppingCartItem GetProductById(int id)
         {
+            if (id < 0)
+            {
+                throw new InvalidIdException();
+            }
+
             return items.Find(x => x.GetProduct().GetId() == id);
 
         }
@@ -77,7 +83,7 @@ namespace CKK.Logic.Models
         {
             if (quantity < 0)
             {
-                return null;
+                throw new ArgumentOutOfRangeException();
             }
 
             var additem = GetProductById(id);
@@ -94,11 +100,12 @@ namespace CKK.Logic.Models
                 additem.SetQuantity(additem.GetQuantity() - quantity);
                 return additem;
             }
-            return null;
+            throw new ProductDoesNotExistException();
         }
 
         public List<ShoppingCartItem> GetProducts()
         {
+
             return items;
 
         }

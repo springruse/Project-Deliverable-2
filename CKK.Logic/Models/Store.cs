@@ -3,6 +3,7 @@ using System.Dynamic;
 using System.Linq;
 using System.Collections.Generic;
 using CKK.Logic.Interfaces;
+using CKK.Logic.Exceptions;
 
 namespace CKK.Logic.Models
 {
@@ -31,9 +32,9 @@ namespace CKK.Logic.Models
 
         public StoreItem AddStoreItem(Product product, int quantity)
         {
-            if (quantity < 0)
+            if (quantity <= 0)
             {
-                return null;
+                throw new InventoryItemStockTooLowException();
             }
 
             var additem = FindStoreItemById(product.GetId());
@@ -55,7 +56,7 @@ namespace CKK.Logic.Models
 
             if (quantity < 0)
             {
-                return null;
+                throw new ArgumentOutOfRangeException();
             }
 
             var additem = FindStoreItemById(id);
@@ -71,7 +72,7 @@ namespace CKK.Logic.Models
                 additem.SetQuantity(0);
                 return additem;
             }
-            return null;
+            throw new ProductDoesNotExistException();
         }
 
         public List<StoreItem> GetStoreItems()
@@ -81,6 +82,10 @@ namespace CKK.Logic.Models
 
         public StoreItem FindStoreItemById(int id)
         {
+            if (id < 0)
+            {
+                throw new InvalidIdException();
+            }
             return products.Find(x => x.GetProduct().GetId() == id);
         }
         

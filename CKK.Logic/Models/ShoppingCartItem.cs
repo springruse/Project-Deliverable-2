@@ -45,7 +45,4 @@ namespace CKK.Logic.Models
 
     }
 
-     
-
-    
 }
